@@ -80,14 +80,14 @@ if (isset($_POST["accion"]) && ($_POST["accion"] == "Agregar")) {
 
         <div class="form-group row">
             <label for="empresa" class="col-md-1 control-label">MÓDULO:</label>
-            
-            <div class="col-md-3">
-            <div>
-       <button class="btn btn-info btn-block" type="submit" value="NUEVO" name="accion">
-                ACEPTAR
 
-            </button>
-       </div>
+            <div class="col-md-3">
+                <div>
+                    <button class="btn btn-info btn-block" type="submit" value="NUEVO" name="accion">
+                        ACEPTAR
+
+                    </button>
+                </div>
                 <select class="form-control input-sm" id="id_vendedor">
                     <?php
 
@@ -98,93 +98,93 @@ if (isset($_POST["accion"]) && ($_POST["accion"] == "Agregar")) {
 
                     ?>
             </div>
-            
-            </div>
-            <option value="<?php echo $id_vendedor ?>" <?php echo "SELECTED"; ?>><?php echo $nombre_vendedor ?></option>
-        <?php
+
+        </div>
+        <option value="<?php echo $id_vendedor ?>" <?php echo "SELECTED"; ?>><?php echo $nombre_vendedor ?></option>
+    <?php
                     }
-        ?>
+    ?>
+
+    <br>
+
+    <br>
+    <br>
+    <div>
        
-        <br>
-       
-        <br>
-        <br>
-        <div>
-            <br>
         <form method="post" action="funcionalidad.php">
             <input type="text" placeholder="Nombre..." name="xnombre" />
             <button name="buscar" type="submit">Buscar</button>
         </form>
-        </div>
-        
-        <form id="forma" class="text-center border border-light p-5" action="funcionalidad.php" style="font-family: arial" style="align-items:center; width:400px;" name="forma" method="post">
-            <table border="1" class="table" style=" font-family: Arial; width:1000px" align="center">
+    </div>
 
-                <thead class="" style="background-color:#17a2b8">
-                    <tr>
-                        <td colspan=3 style="color: white;">FUNCIONALIDADES</td>
+    <form id="forma" class="text-center border border-light p-5" action="funcionalidad.php" style="font-family: arial" style="align-items:center; width:400px;" name="forma" method="post">
+        <table border="1" class="table" style=" font-family: Arial; width:1000px" align="center">
 
-                    </tr>
-                    <tr>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">URL Principal</th>
-                        <th scope="col">Descripción</th>
-                    </tr>
-                </thead>
-                <?php
-                $contador = 0;
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        if ($contador == 10) {
-                            break;
-                        }
-                        $contador++;
-                ?>
-                        <tbody>
-                            <tr>
-                                <td><a href="funcionalidad.php?update=<?php echo $row["COD_MODULO"]; ?>"><?php echo $row["COD_MODULO"]; ?></a>
-                                </td>
-                                <td><?php echo $row["NOMBRE"]; ?> </td>
-                                <td><?php echo $row["ESTADO"]; ?> </td>
+            <thead class="" style="background-color:#17a2b8">
+                <tr>
+                    <td colspan=3 style="color: white;">FUNCIONALIDADES</td>
 
-
-                            </tr>
-                        </tbody>
-                    <?php
+                </tr>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">URL Principal</th>
+                    <th scope="col">Descripción</th>
+                </tr>
+            </thead>
+            <?php
+            $contador = 0;
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    if ($contador == 10) {
+                        break;
                     }
-                } else { ?>
-                    <tr>
-                        <td colspan="5">No hay datos</td>
-                    </tr>
-                <?php } ?>
-
-            </table>
-
-
-
-            <!-- Default form contact -->
+                    $contador++;
+            ?>
+                    <tbody>
+                        <tr>
+                            <td><a href="funcionalidad.php?update=<?php echo $row["COD_MODULO"]; ?>"><?php echo $row["COD_MODULO"]; ?></a>
+                            </td>
+                            <td><?php echo $row["NOMBRE"]; ?> </td>
+                            <td><?php echo $row["ESTADO"]; ?> </td>
 
 
-            <br>
+                        </tr>
+                    </tbody>
+                <?php
+                }
+            } else { ?>
+                <tr>
+                    <td colspan="5">No hay datos</td>
+                </tr>
+            <?php } ?>
+
+        </table>
 
 
-            <!-- Send button -->
-            <button class="btn btn-info btn-block" type="submit" value="NUEVO" name="accion">
-                NUEVO
 
-            </button>
-            <button class="btn btn-info btn-block" type="submit" value="<?php echo $accion ?>" name="accion">
-                MODIFICAR
-
-            </button>
-            <button class="btn btn-info btn-block" type="submit" value="<?php echo $accion ?>" name="accion">
-                ELIMINAR
-
-            </button>
-
-        </form>
         <!-- Default form contact -->
-        </div>
+
+
+        <br>
+
+
+        <!-- Send button -->
+        <button class="btn btn-info btn-block" type="submit" value="NUEVO" name="accion">
+            NUEVO
+
+        </button>
+        <button class="btn btn-info btn-block" type="submit" value="<?php echo $accion ?>" name="accion">
+            MODIFICAR
+
+        </button>
+        <button class="btn btn-info btn-block" type="submit" value="<?php echo $accion ?>" name="accion">
+            ELIMINAR
+
+        </button>
+
+    </form>
+    <!-- Default form contact -->
+    </div>
 </body>
 <script>
     function eliminarCliente() {
