@@ -11,7 +11,7 @@ $estado = "";
 $accion = "Agregar";
 $codModulo = "";
 $moduloService = new ModuloService();
-$result = $moduloService->findAll();
+$result = $result = $conex->query("SELECT * FROM ROL_MODULO");
 
 if (isset($_POST["accion"]) && ($_POST["accion"] == "Agregar")) {
     $moduloService->insert($_POST["codModulo"], $_POST["nombre"], $_POST["estado"]);
@@ -137,8 +137,7 @@ if (isset($_POST["accion"]) && ($_POST["accion"] == "Agregar")) {
             ?>
                     <tbody>
                         <tr>
-                            <td><a href="funcionalidad.php?update=<?php echo $row["COD_MODULO"]; ?>"><?php echo $row["COD_MODULO"]; ?></a>
-                            </td>
+                        <td><?php echo $row["COD_MODULO"]; ?> </td>
                            
 
                         </tr>
