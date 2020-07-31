@@ -50,7 +50,7 @@ if (isset($_POST["accion"]) && ($_POST["accion"] == "Agregar")) {
 <body>
 
     <div style="text-align: center;">
-        <h1>Conexion a Base de Datos MySQL</h1>
+        
 
         <!-- Default form contact -->
 
